@@ -1,26 +1,25 @@
 import React from "react";
-import { Route, Switch, Link, useRouteMatch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import User from "./User.jsx";
 
 const Users = () => {
-  const { url } = useRouteMatch();
   return (
     <div className="page__content">
       <h1>Users</h1>
       <ul className="navigation">
         <li className="navigation__item">
-          <Link to={`${url}/github`}>Github</Link>
+          <Link to="/github">Github</Link>
         </li>
         <li className="navigation__item">
-          <Link to={`${url}/facebook`}>Facebook</Link>
+          <Link to="/facebook">Facebook</Link>
         </li>
       </ul>
 
       <Switch>
-        <Route exact path={`${url}`}>
+        <Route exact path="/">
           <span>Select a user please</span>
         </Route>
-        <Route path={`${url}/:userID`}>
+        <Route path="/:USER_ID">
           <User />
         </Route>
       </Switch>

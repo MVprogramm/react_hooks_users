@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 
 const User = () => {
   const [userData, setUserData] = useState(null);
-  const { userID } = useParams();
+  const { USER_ID } = useParams();
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${userID}`)
+    fetch(`https://api.github.com/users/${USER_ID}`)
       .then((res) => res.json())
       .then((userData) => setUserData(userData));
-  }, [userID]);
+  }, [USER_ID]);
 
   if (!userData) return null;
 
